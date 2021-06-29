@@ -27,7 +27,7 @@ export const FormBuilder = new Vue({
 	      	fields: [
 	      		{ 
 	          		'name': 'TextInput',
-	          		'text': 'Text',
+	          		'text': 'Texto',
 	          		'group': 'form', //form group
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -37,7 +37,7 @@ export const FormBuilder = new Vue({
 		        },
 		        { 
 	          		'name': 'LongTextInput',
-	          		'text': 'Long Text',
+	          		'text': 'Texto Largo',
 	          		'group': 'form',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -47,7 +47,7 @@ export const FormBuilder = new Vue({
 		        },
 		        { 
 	          		'name': 'NumberInput',
-	          		'text': 'Number',
+	          		'text': 'Numero',
 	          		'group': 'form',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -57,7 +57,7 @@ export const FormBuilder = new Vue({
 		        },
 				{
 	          		'name': 'SelectList',
-	          		'text': 'Select',
+	          		'text': 'Seleccion Multiple',
 	          		'group': 'form',
 	          		'hasOptions': true,
 	          		'isRequired': false,
@@ -87,7 +87,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'TimePicker',
-	          		'text': 'Time Picker',
+	          		'text': 'Seleccion de Hora',
 	          		'group': 'form',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -97,7 +97,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'DatePicker',
-	          		'text': 'Date Picker',
+	          		'text': 'Seleccion de Fecha',
 	          		'group': 'form',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -107,7 +107,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'DatetimePicker',
-	          		'text': 'Date-Time Picker',
+	          		'text': 'Seleccion Fecha Hora',
 	          		'group': 'form',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -117,7 +117,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'Rating',
-	          		'text': 'Rating',
+	          		'text': 'Nivel',
 	          		'group': 'form',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -137,7 +137,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'TextEditor',
-	          		'text': 'Text editor',
+	          		'text': 'Editor de texto',
 	          		'group': 'static',
 	          		'hasOptions': false,
 	          		'isRequired': false,

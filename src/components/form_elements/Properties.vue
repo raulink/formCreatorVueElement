@@ -36,12 +36,12 @@
 		    	</el-input>
 		  	</el-form-item>
 
-			<el-form-item label="Required field?" 
+			<el-form-item label="Campo Requerido?" 
 						  v-show="activeForm.hasOwnProperty('isRequired')">
 		    	<el-switch v-model="activeForm.isRequired"></el-switch>
 		  	</el-form-item>
 
-		  	<el-form-item label="Helpblock" 
+		  	<el-form-item label="Bloque de Descripcion" 
 		  				  v-show="activeForm.hasOwnProperty('isHelpBlockVisible')">
 		    	<el-switch v-model="activeForm.isHelpBlockVisible"></el-switch>
 		    	<el-input v-show="activeForm.isHelpBlockVisible" 

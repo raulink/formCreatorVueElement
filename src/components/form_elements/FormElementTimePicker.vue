@@ -7,7 +7,7 @@
         step: '00:15',
         end: '23:45'
       }"
-      placeholder="Select time">
+      placeholder="Seleccione Hora">
     </el-time-select>
   </div>
 </template>

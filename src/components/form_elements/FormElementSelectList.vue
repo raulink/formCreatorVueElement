@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-select v-model="value" placeholder="Select">
+    <el-select v-model="value" placeholder="Seleccione">
       <el-option
         v-for="item in currentField.options"
         :key="item.optionValue"

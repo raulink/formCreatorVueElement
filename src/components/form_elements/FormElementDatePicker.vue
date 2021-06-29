@@ -3,7 +3,7 @@
     <el-date-picker
       v-model="date"
       type="date"
-      placeholder="Pick a day">
+      placeholder="Seleccione Fecha">
     </el-date-picker>
   </div>
 </template>

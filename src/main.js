@@ -18,9 +18,9 @@ import App from './App'
 // ================
 // Transitions
 // ----------------
-import Animate from 'vue2-animate/dist/vue2-animate.min.css'
+/* import Animate from 'vue2-animate/dist/vue2-animate.min.css'
 Vue.use(Animate)
-
+ */
 // ================
 // Lodash
 // ----------------
@@ -34,14 +34,14 @@ import router from './router'
 
 
 // ================
-// Use Layouts
+// Layout 
 // ----------------
 import Default from './layouts/Default'
 Vue.component('default-layout', Default);
 
 
 // ================
-// Vue-stash aka simple vuex alternative
+// Vue-stash alternative vuex
 // ----------------
 import VueStash from 'vue-stash'
 import store from './store/store'

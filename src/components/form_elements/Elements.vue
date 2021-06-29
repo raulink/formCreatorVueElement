@@ -25,7 +25,7 @@
   import draggable       from 'vuedraggable'
 
   export default {
-    name: 'Elements',
+    name: 'Elementos',
     store: ['forms', 'activeForm'],
     components: { draggable },
     data() {
@@ -44,26 +44,24 @@
         // Show placeholder
         if (field.isPlaceholderVisible){
           newField ["isPlaceholderVisible"] = false;
-          newField ["placeholder"] = 'Input your text here...';
+          newField ["placeholder"] = 'Introducir Texto';
         }
 
         // Decide whether display label, required field, helpblock
         if (field.group == "form"){
-          newField ["label"] = "Enter your field label";
+          newField ["label"] = "Introduzca su etiqueta";
           newField ["isHelpBlockVisible"] =  false;
-          newField ["helpBlockText"] = 'Please input your helpblock here...';
+          newField ["helpBlockText"] = 'Introduzca su texto de ayuda...';
           newField ["isRequired"] = false;
         }
 
         if (field.group == "button"){
-          newField ["buttonText"] = "Submit your form";
+          newField ["buttonText"] = "Enviar Formulario";
         }
 
         if (field.name == "TextEditor"){
-          newField ["fieldText"] = "Start typing...";
+          newField ["fieldText"] = "Introducir Texto";
         }
-
-
         // Add dummy options for loading the radio/checkbox
         if (field.hasOptions){
           newField ["options"] = [
@@ -75,19 +73,17 @@
         return newField;
       },
       onStart(){
-        // console.log("start liao")
+        console.log("starting")
       },
       checkStopDragCondition(field){
         var form = this.forms,
             formArray = [];
-
         for (var key in form) {
           formArray.push(form[key]['fieldType'])
         }
-
         // Check if the fieldname exist in formArray
         // And when the field.isUnique too
-        return _.includes(formArray, field.name) && field.isUnique;
+        return _.includes(formArray, field.name) && field.isUnique; //No permite modificar el texto
       }
     }
   }

@@ -1,10 +1,10 @@
 <template>
   <div class="demo-wrapper">
-    <div class="demo-header">
+    <!-- <div class="demo-header">
       <h1>Form Builder
           <small>Made with Vue.JS</small>
       </h1>
-    </div>
+    </div> -->
     <div class="app-wrapper">
       <div id="app">
         <component :is="layout">
@@ -17,9 +17,9 @@
       </div>
     </div>
 
-    <div class="demo-footer">
+    <!-- <div class="demo-footer">
       <a href="https://github.com/jmeei/vue-formbuilder">GitHub Repo</a>
-    </div>
+    </div> -->
   </div>
 </template>
 
