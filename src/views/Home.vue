@@ -1,7 +1,9 @@
 <template>
   <div class="main__wrapper">
     <el-container>
-      <el-main :style="cssProps">
+      <el-main>
+        <!-- <el-main :style="cssProps"> Añadir la propiedad en caso de estilos personalizados  -->
+
         <div class="wrapper--forms">
           <!-- Show empty state if empty -->
           <div v-if="forms.length == 0" class="emptyState">
@@ -21,8 +23,9 @@
               class="form__group"
               :class="{ 'is--active': form === activeForm }"
             >
+              <!-- En caso de ser seleccionado, muestra el tipo de dato -->
               <span class="form__selectedlabel">{{ form.fieldType }}</span>
-
+              <!-- Etiqueta  -->
               <div @click="editElementProperties(form)">
                 <label
                   class="form__label"
@@ -30,14 +33,14 @@
                   v-show="form.hasOwnProperty('label')"
                   >{{ form.label }}</label
                 >
-
+                <!-- Componente -->
                 <component
                   :is="form.fieldType"
                   :currentField="form"
                   class="form__field"
                 >
                 </component>
-
+                <!-- Bloque de ayuda -->
                 <small
                   class="form__helpblock"
                   v-model="form.helpBlockText"
@@ -48,6 +51,7 @@
 
               <!-- Actions list -->
               <div class="form__actiongroup">
+                <!-- Boton Mover -->
                 <el-button
                   circle
                   size="mini"
@@ -55,7 +59,7 @@
                   icon="el-icon-rank"
                   class="form__actionitem--move"
                 ></el-button>
-
+                <!-- Boton clonar -->
                 <el-button-group class="form__actionlist">
                   <el-button
                     size="mini"
@@ -64,6 +68,7 @@
                     @click="cloneElement(index, form)"
                     v-show="!form.isUnique"
                   ></el-button>
+                  <!-- Boton Eliminar -->
                   <el-button
                     size="mini"
                     type="primary"
@@ -75,7 +80,7 @@
             </div>
           </draggable>
         </div>
-
+<!-- Se muestra la division donde esta el json resultante -->
         <div class="wrapper--snippet">
           <pre>{{ forms }}</pre>
         </div>
@@ -118,7 +123,7 @@ export default {
   },
 
   computed: {
-    cssProps() {
+    /* cssProps() {
       // Return an object that will generate css properties key
       // to match with the themingVars
       //
@@ -132,10 +137,10 @@ export default {
             suffix = "";
 
           // Add px to the value if the default value contain 'px'
-          /* if (_.includes(newV, "size")) suffix = "px";
-          else if (_.includes(newV, "margin")) suffix = "px";
-          else if (_.includes(newV, "radius")) suffix = "px";
- */
+          //if (_.includes(newV, "size")) suffix = "px";
+          //else if (_.includes(newV, "margin")) suffix = "px";
+          //else if (_.includes(newV, "radius")) suffix = "px";
+
           result[newV] = themingVars[v] + suffix;
         }
       }
@@ -143,7 +148,7 @@ export default {
       console.log("result", result);
 
       return result;
-    },
+    }, */
   },
 
   mounted() {
@@ -198,9 +203,9 @@ export default {
   background: lighten(black, 20%);
   padding: 3px 5px;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   position: absolute;
-  top: -17px;
+  top: -18px;
   right: 15px;
 }
 

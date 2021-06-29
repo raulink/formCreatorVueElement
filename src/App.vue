@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-wrapper">
+  <!-- <div class="demo-wrapper"> -->
     <!-- <div class="demo-header">
       <h1>Form Builder
           <small>Made with Vue.JS</small>
@@ -20,8 +20,8 @@
     <!-- <div class="demo-footer">
       <a href="https://github.com/jmeei/vue-formbuilder">GitHub Repo</a>
     </div> -->
-  </div>
-</template>
+<!--   </div>
+ --></template>
 
 <script>
   const default_layout = "default";

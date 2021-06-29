@@ -49,7 +49,7 @@
 
         // Decide whether display label, required field, helpblock
         if (field.group == "form"){
-          newField ["label"] = "Introduzca su etiqueta";
+          newField ["label"] = "Introduzca Etiqueta";
           newField ["isHelpBlockVisible"] =  false;
           newField ["helpBlockText"] = 'Introduzca su texto de ayuda...';
           newField ["isRequired"] = false;
@@ -112,12 +112,12 @@
     }
 
     &:before {
-      content: "Drag it here";
+      content: "Colocar aqui";
       background-color: black;
       color: white;
       position: absolute;
       left: 50%;
-      font-size: 10px;
+      font-size: 12px;
       border-radius: 10px;
       line-height: 15px;
       padding: 0 10px;

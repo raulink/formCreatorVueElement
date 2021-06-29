@@ -1,7 +1,8 @@
 <template>
   <div class="main__wrapper">
     <el-container>
-      <el-main :style="cssProps">
+      <el-main >
+        <!-- <el-main :style="cssProps"> En caso de estilos personalizados -->
         <div class="wrapper--forms preview__wrapper">
           <div v-for="(form, index) in forms" 
                :key="index" 
@@ -34,7 +35,7 @@
     store: ['forms', 'themingVars'],
     components: FormBuilder.$options.components,
     computed: {
-      cssProps() { 
+      /* cssProps() { 
         // Return an object that will generate css properties key 
         // to match with the themingVars
         // 
@@ -57,7 +58,7 @@
         }   
 
         return result;
-      }
+      } */
     }
   }
 </script>

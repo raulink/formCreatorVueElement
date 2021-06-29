@@ -8,7 +8,7 @@ export default {
 		globalLinkColor: "#206C92",
 		globalFontSize: "16",
 
-		labelFontWeight: "500",
+		labelFontWeight: "700",
 		labelFontSize: "16",
 		labelMarginBottom: "10",
 
@@ -17,7 +17,7 @@ export default {
 		helpTextMarginTop: "10",
 
 
-		inputBorderRadius: "4",
+		inputBorderRadius: "6",
 		inputBorderColor: "#dcdfe6",
 		inputHoverBorderColor: "#c0c4cc",
 		inputFocusBorderColor: "#000000",

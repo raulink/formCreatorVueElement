@@ -2,14 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 
-
 // ================
 // Use Element UI
 // ----------------
 import Element from 'element-ui'
-import locale from 'element-ui/lib/locale/lang/en' // Default lang is Chinese
-import './assets/scss/_var.scss'
-Vue.use(Element, { locale })
+//import locale from 'element-ui/lib/locale/lang/en' // Default lang is Chinese
+//import './assets/scss/_var.scss'
+Vue.use(Element)
 import './assets/scss/main.scss'
 
 
@@ -22,7 +21,7 @@ import App from './App'
 Vue.use(Animate)
  */
 // ================
-// Lodash
+// Lodash A small wrapper for integrating lodash to Vuejs (Inspired by vue-axios plugin)
 // ----------------
 import VueLodash from 'vue-lodash'
 Vue.use(VueLodash)
@@ -34,7 +33,7 @@ import router from './router'
 
 
 // ================
-// Layout 
+// Layout default
 // ----------------
 import Default from './layouts/Default'
 Vue.component('default-layout', Default);

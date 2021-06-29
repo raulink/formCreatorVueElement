@@ -9,7 +9,7 @@
 // 
 .wrapper--forms {
 	@include variable(font-family, Arial, --theme-global-font-family);
-	@include variable(color, #777777, --theme-global-font-color);
+	@include variable(color, black, --theme-global-font-color);
 	@include variable(font-size, 16, --theme-global-font-size);
 
 	a {
