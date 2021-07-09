@@ -1,48 +1,67 @@
 <template>
-	<div class="el-tabs__inner">
+	<div class="el-tabs__inner">		
+		<b-form v-model="fieldProperties">
+			<b-form-group label="Etiqueta" v-show="activeForm.hasOwnProperty('label')">
+				<b-form-input v-model="activeForm.label"> {{activeForm.label}} </b-form-input>				
+			</b-form-group>
+			<b-form-group label="Texto de Fondo" v-show="activeForm.hasOwnProperty('isPlaceholderVisible')">				
+				<b-form-checkbox v-model="activeForm.isPlaceholderVisible" switch size="md"></b-form-checkbox>
+				<b-form-input v-show="activeForm.isPlaceholderVisible" v-model="activeForm.placeholder">
+					{{activeForm.placeholder}}
+				</b-form-input>
+			</b-form-group>
+
+			<b-form-group label="Texto de Fondo" v-show="activeForm.hasOwnProperty('isPlaceholderVisible')">				
+				<b-form-checkbox v-model="activeForm.isPlaceholderVisible" switch size="md"></b-form-checkbox>
+				<b-form-input v-show="activeForm.isPlaceholderVisible" v-model="activeForm.placeholder">
+					{{activeForm.placeholder}}
+				</b-form-input>
+			</b-form-group>
+
+			<b-form-group label="Texto de Fondo" v-show="activeForm.hasOwnProperty('isPlaceholderVisible')">				
+				<b-form-checkbox v-model="activeForm.isPlaceholderVisible" switch size="md"></b-form-checkbox>
+				<b-form-input v-show="activeForm.isPlaceholderVisible" v-model="activeForm.placeholder">
+					{{activeForm.placeholder}}
+				</b-form-input>
+			</b-form-group>
+
+		</b-form>
+
 		<el-form :model="fieldProperties" 
 				 :rules="rules" 
 				 :label-position="labelPosition"
 				 ref="fieldProperties">
 
-		  	<el-form-item label="Label" 
-		  				  v-show="activeForm.hasOwnProperty('label')">
+		  	<el-form-item label="Etiqueta" v-show="activeForm.hasOwnProperty('label')">
 		    	<el-input v-model="activeForm.label">{{activeForm.label}}</el-input>
 		  	</el-form-item>
 			
 			<!-- Show only when 'isPlacehodlerVisible' key exist -->
-			<el-form-item label="Texto de Fondo" 
-						  v-show="activeForm.hasOwnProperty('isPlaceholderVisible')">
+			<el-form-item label="Texto de Fondo" v-show="activeForm.hasOwnProperty('isPlaceholderVisible')">
 		    	<el-switch v-model="activeForm.isPlaceholderVisible"></el-switch>
-		    	<el-input v-show="activeForm.isPlaceholderVisible" 
-		    			  v-model="activeForm.placeholder">
+		    	<el-input v-show="activeForm.isPlaceholderVisible" v-model="activeForm.placeholder">
 		    		{{activeForm.placeholder}}
 		    	</el-input>
 		  	</el-form-item>
 
-		  	<el-form-item label="Button text" 
-						  v-show="activeForm.hasOwnProperty('buttonText')">
+		  	<el-form-item label="Button text" v-show="activeForm.hasOwnProperty('buttonText')">
 		    	<el-input v-model="activeForm.buttonText">
 		    		{{activeForm.buttonText}}
 		    	</el-input>
 		  	</el-form-item>
 
-		  	<el-form-item label="Code view" 
-						  v-show="activeForm.hasOwnProperty('fieldText')">
-		    	<el-input v-model="activeForm.fieldText"
-		    			  type="textarea"
+		  	<el-form-item label="Code view" v-show="activeForm.hasOwnProperty('fieldText')">
+		    	<el-input v-model="activeForm.fieldText" type="textarea"
 		    			  :rows="10">
 		    		{{activeForm.fieldText}}
 		    	</el-input>
 		  	</el-form-item>
 
-			<el-form-item label="Campo Requerido?" 
-						  v-show="activeForm.hasOwnProperty('isRequired')">
+			<el-form-item label="Campo Requerido?" v-show="activeForm.hasOwnProperty('isRequired')">
 		    	<el-switch v-model="activeForm.isRequired"></el-switch>
 		  	</el-form-item>
 
-		  	<el-form-item label="Bloque de Descripcion" 
-		  				  v-show="activeForm.hasOwnProperty('isHelpBlockVisible')">
+		  	<el-form-item label="Bloque de Descripcion" v-show="activeForm.hasOwnProperty('isHelpBlockVisible')">
 		    	<el-switch v-model="activeForm.isHelpBlockVisible"></el-switch>
 		    	<el-input v-show="activeForm.isHelpBlockVisible" 
 		    			  v-model="activeForm.helpBlockText">
@@ -52,10 +71,7 @@
 
 		  	<el-form-item label="Opciones" v-show="activeForm.options">
 	  			<ul>
-			  		<li v-for="(item, index) in activeForm.options"
-			  			:key="index"
-			  			class="properties__optionslist">
-
+			  		<li v-for="(item, index) in activeForm.options" :key="index" class="properties__optionslist">
 			  			<el-row :gutter="5">
 						  <el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
 						  	<el-input v-model="item.optionValue">{{item.optionValue}}</el-input>
