@@ -1,6 +1,6 @@
 <template>
     <div>
-    	<el-button type="primary" class="form__button">{{ currentField.buttonText }}</el-button>
+    	<b-button type="primary" class="form__button">{{ currentField.buttonText }}</b-button>      
     </div>
 </template>
 

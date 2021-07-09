@@ -5,6 +5,9 @@
       type="datetime"
       placeholder="Seleccionar Fecha y Hora">
     </el-date-picker>
+  
+
+
   </div>
 </template>
 
@@ -14,7 +17,8 @@
     name: 'DatetimePicker',
     data() {
     	return {
-    		date: ''
+    		date: '',
+        
     	}
     }
   }

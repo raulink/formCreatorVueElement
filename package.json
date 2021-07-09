@@ -12,6 +12,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.1.0",
+    "bootstrap-vue-dialog": "^0.1.0",
     "element-ui": "^2.4.5",
     "medium-editor": "^5.23.3",
     "vue": "^2.5.2",
@@ -19,7 +21,7 @@
     "vue-router": "^3.0.1",
     "vue-stash": "^2.0.1-beta",
     "vue2-animate": "^2.0.0",
-    "vue2-medium-editor": "^1.1.5",
+    "vue2-medium-editor": "^1.1.6",
     "vuedraggable": "^2.16.0"
   },
   "devDependencies": {

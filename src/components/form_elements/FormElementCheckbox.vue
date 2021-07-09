@@ -1,15 +1,14 @@
 <template>
   <div>
-    <el-checkbox-group v-model="checkList">
-      <el-checkbox v-for="(item, index) in currentField.options"
+    <b-checkbox-group v-model="checkList">
+      <b-checkbox v-for="(item, index) in currentField.options"
               :key="item.optionValue"
               :label="index">
         {{ item.optionValue }}
-      </el-checkbox>
-    </el-checkbox-group>
+      </b-checkbox>
+    </b-checkbox-group>
   </div>
 </template>
-
 
 <script>
   export default {

@@ -1,14 +1,11 @@
 <template>
   <div>
-    <el-time-select
-      v-model="time"
-      :picker-options="{
-        start: '00:00',
-        step: '00:15',
-        end: '23:45'
-      }"
-      placeholder="Seleccione Hora">
-    </el-time-select>
+    <b-form-timepicker
+    v-model="time"      
+    label-no-time-selected="--"
+    placeholder="Seleccione Hora"
+    >
+    </b-form-timepicker>    
   </div>
 </template>
 

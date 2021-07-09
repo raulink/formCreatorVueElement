@@ -1,111 +1,123 @@
 <template>
   <div class="main__wrapper">
-    <el-container>
-      <el-main>
-        <!-- <el-main :style="cssProps"> Añadir la propiedad en caso de estilos personalizados  -->
-
-        <div class="wrapper--forms">
-          <!-- Show empty state if empty -->
-          <div v-if="forms.length == 0" class="emptyState">
-            <p class="emptyState__p">Arrastrar elementos a esta área</p>
-          </div>
-
-          <draggable
-            :list="forms"
-            class="dragArea"
-            :options="sortElementOptions"
-          >
-            <!-- The form elements starts (on the right) -->
-            <div
-              v-for="(form, index) in forms"
-              :key="index"
-              v-bind="form"
-              class="form__group"
-              :class="{ 'is--active': form === activeForm }"
-            >
-              <!-- En caso de ser seleccionado, muestra el tipo de dato -->
-              <span class="form__selectedlabel">{{ form.fieldType }}</span>
-              <!-- Etiqueta  -->
-              <div @click="editElementProperties(form)">
-                <label
-                  class="form__label"
-                  v-model="form.label"
-                  v-show="form.hasOwnProperty('label')"
-                  >{{ form.label }}</label
-                >
-                <!-- Componente -->
-                <component
-                  :is="form.fieldType"
-                  :currentField="form"
-                  class="form__field"
-                >
-                </component>
-                <!-- Bloque de ayuda -->
-                <small
-                  class="form__helpblock"
-                  v-model="form.helpBlockText"
-                  v-show="form.isHelpBlockVisible"
-                  >{{ form.helpBlockText }}
-                </small>
-              </div>
-
-              <!-- Actions list -->
-              <div class="form__actiongroup">
-                <!-- Boton Mover -->
-                <el-button
-                  circle
-                  size="mini"
-                  type="primary"
-                  icon="el-icon-rank"
-                  class="form__actionitem--move"
-                ></el-button>
-                <!-- Boton clonar -->
-                <el-button-group class="form__actionlist">
-                  <el-button
-                    size="mini"
-                    type="primary"
-                    icon="el-icon-plus"
-                    @click="cloneElement(index, form)"
-                    v-show="!form.isUnique"
-                  ></el-button>
-                  <!-- Boton Eliminar -->
-                  <el-button
-                    size="mini"
-                    type="primary"
-                    icon="el-icon-delete"
-                    @click="deleteElement(index)"
-                  ></el-button>
-                </el-button-group>
-              </div>
+    <b-container>
+      <b-row>
+        <b-col md="5">
+          <div class="wrapper--forms">
+            <!-- Show empty state if empty -->
+            <div v-if="forms.length == 0" class="emptyState">
+              <p class="emptyState__p">Arrastrar elementos a esta área</p>
             </div>
-          </draggable>
-        </div>
-<!-- Se muestra la division donde esta el json resultante -->
-        <div class="wrapper--snippet">
-          <pre>{{ forms }}</pre>
-        </div>
-      </el-main>
 
-      <el-aside class="wrapper--sidebar" width="450px">
-        <el-tabs type="border-card" v-model="activeTabForFields">
-          <el-tab-pane name="elements" label="Elementos">
-            <elements />
-          </el-tab-pane>
+            <draggable
+              :list="forms"
+              class="dragArea"
+              :options="sortElementOptions"
+            >
+              <!-- The form elements starts (on the right) -->
+              <div
+                v-for="(form, index) in forms"
+                :key="index"
+                v-bind="form"
+                class="form__group"
+                :class="{ 'is--active': form === activeForm }"
+              >
+                <!-- En caso de ser seleccionado, muestra el tipo de dato -->
+                <span class="form__selectedlabel">{{ form.fieldType }}</span>
+                <!-- Etiqueta  -->
+                <div @click="editElementProperties(form)">
+                  <label
+                    class="form__label"
+                    v-show="form.hasOwnProperty('label')"
+                    >{{ form.label }}</label
+                  >
+                  <!-- Componente -->
+                  <component
+                    :is="form.fieldType"
+                    :currentField="form"
+                    class="form__field"
+                  >
+                  </component>
+                  <!-- Bloque de ayuda -->
+                  <small
+                    class="form__helpblock"
+                    v-show="form.isHelpBlockVisible"
+                    >{{ form.helpBlockText }}
+                  </small>
+                </div>
 
-          <el-tab-pane name="properties" label="Propiedades">
-            <properties
-              v-show="Object.keys($store.activeForm).length > 0"
-            ></properties>
-          </el-tab-pane>
+                <!-- Actions list -->
+                <div class="form__actiongroup">
+                  <!-- Boton Mover -->
+                  <b-button
+                    variant="primary"
+                    pill
+                    size="sm"
+                    class="form__actionitem--move"
+                  >
+                    <b-icon icon="arrows-move"> </b-icon>
+                  </b-button>
 
-          <el-tab-pane name="designs" label="Estilos">
-            <theming></theming>
-          </el-tab-pane>
-        </el-tabs>
+                  <!-- Boton clonar -->
+                  <b-button-group class="form__actionlist">
+                    <b-button
+                      size="sm"
+                      variant="primary"
+                      @click="cloneElement(index, form)"
+                      v-show="!form.isUnique"
+                    >
+                      <b-icon icon="plus-circle-fill"> </b-icon>
+                    </b-button>
+                    <!-- Boton Eliminar -->
+                    <b-button
+                      size="sm"
+                      variant="danger"                      
+                      @click="deleteElement(index)"
+                    >
+                      <b-icon icon="trash-fill"> </b-icon>
+                    </b-button>
+                  </b-button-group>
+                </div>
+              </div>
+            </draggable>
+          </div>
+        </b-col>
+        <b-col md="7">
+          <el-tabs type="border-card" v-model="activeTabForFields">
+            <el-tab-pane name="elements" label="Elementos">
+              <elements />
+            </el-tab-pane>
 
-        {{ $store.activeForm }}
-      </el-aside>
-    </el-container>
+            <el-tab-pane name="properties" label="Propiedades">
+              <properties
+                v-show="Object.keys($store.activeForm).length > 0"
+              ></properties>
+            </el-tab-pane>
+
+            <el-tab-pane name="designs" label="Estilos">
+              <theming></theming>
+            </el-tab-pane>
+          </el-tabs>
+          <el-container>
+            <el-main>
+              <!-- <el-main :style="cssProps"> Añadir la propiedad en caso de estilos personalizados  -->
+              <!-- Se muestra la division donde esta el json resultante -->
+            </el-main>
+            <el-aside class="wrapper--sidebar" width="450px">
+              <br />
+              {{ $store.activeForm }}
+            </el-aside>
+          </el-container>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col md="12">
+          <div class="wrapper--snippet">
+            <pre>{{ forms }}</pre>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 

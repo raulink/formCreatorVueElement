@@ -107,7 +107,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'DatetimePicker',
-	          		'text': 'Seleccion Fecha Hora',
+	          		'text': 'Seleccion Fecha Hora (NO)',
 	          		'group': 'form',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -127,7 +127,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'Button',
-	          		'text': 'Button',
+	          		'text': 'Boton',
 	          		'group': 'button',
 	          		'hasOptions': false,
 	          		'isRequired': false,
@@ -137,7 +137,7 @@ export const FormBuilder = new Vue({
 		      	},
 		      	{
 	          		'name': 'TextEditor',
-	          		'text': 'Editor de texto',
+	          		'text': 'Editor de texto (No)',
 	          		'group': 'static',
 	          		'hasOptions': false,
 	          		'isRequired': false,

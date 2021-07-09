@@ -1,8 +1,8 @@
 <template>
-    <div>
-    	<el-input 
+    <div>    	
+      <b-input 
     		:placeholder="currentField.isPlaceholderVisible ? currentField.placeholder : ''">	
-    	</el-input>
+    	</b-input>
     </div>
 </template>
 

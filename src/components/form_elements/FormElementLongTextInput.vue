@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <el-input
-      type="textarea"
-      :rows="2"
+  <div>    
+    <b-form-textarea
+      v-model="textarea"
       :placeholder="currentField.isPlaceholderVisible ? currentField.placeholder : ''"
-      v-model="textarea">
-    </el-input>
+      :rows="3"
+        >
+    </b-form-textarea>
   </div>
 </template>
 

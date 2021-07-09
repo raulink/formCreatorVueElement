@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-radio v-model="radio"  
-    			    v-for="(item, index) in currentField.options"
+    			    v-for="(item) in currentField.options"
         		  :key="item.optionValue"
         		  :label="item.optionLabel">
       {{ item.optionValue }}

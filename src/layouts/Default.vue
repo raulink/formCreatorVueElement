@@ -1,6 +1,17 @@
 <template>
-	<el-container>
-		<el-header>
+  <b-container>
+    <b-tabs content-class="mt-3">
+      <b-tab title="Diseño" active>
+        <br />Contenido
+			<home/>
+      </b-tab>
+      <b-tab title="Vista Previa" active>
+        <br />vista previa
+			<preview/>
+      </b-tab>
+    </b-tabs>
+
+    <!-- 		<el-header>
 			<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :router="true">
 			  <el-menu-item index="/">Diseño</el-menu-item>
 			  <el-menu-item index="/Preview">Vista Previa</el-menu-item>
@@ -11,18 +22,24 @@
 	    	<el-main>
 	    		<slot />
 	    	</el-main>
-	  	</el-container>
-	</el-container>
+	  	</el-container> -->
+  </b-container>
 </template>
 
+
 <script>
-	export default {
-		data() {
-	      return {
-	        activeIndex: '/'
-	      };
-	    }
-	}
+import Home from "../views/Home.vue";
+import Preview from "../views/Preview.vue";
+export default {
+	components:{
+		Home,Preview
+	},
+  data() {
+    return {
+      activeIndex: "/",
+    };
+  },
+};
 </script>
 
 

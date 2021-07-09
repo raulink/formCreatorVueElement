@@ -11,7 +11,7 @@
 		  	</el-form-item>
 			
 			<!-- Show only when 'isPlacehodlerVisible' key exist -->
-			<el-form-item label="Placeholder" 
+			<el-form-item label="Texto de Fondo" 
 						  v-show="activeForm.hasOwnProperty('isPlaceholderVisible')">
 		    	<el-switch v-model="activeForm.isPlaceholderVisible"></el-switch>
 		    	<el-input v-show="activeForm.isPlaceholderVisible" 
@@ -50,7 +50,7 @@
 		    	</el-input>
 		  	</el-form-item>
 
-		  	<el-form-item label="Options" v-show="activeForm.options">
+		  	<el-form-item label="Opciones" v-show="activeForm.options">
 	  			<ul>
 			  		<li v-for="(item, index) in activeForm.options"
 			  			:key="index"
@@ -72,7 +72,7 @@
 				
 				<el-button type="text" @click="addOption(activeForm.options)">
 		            <i class="el-icon-plus"></i>
-		            Add more
+		            Añadir
 		        </el-button>
 		  	</el-form-item>
 		</el-form>
