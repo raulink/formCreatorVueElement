@@ -94,9 +94,9 @@
               ></properties>
             </el-tab-pane>
 
-            <el-tab-pane name="designs" label="Estilos">
+            <!-- <el-tab-pane name="designs" label="Estilos">
               <theming></theming>
-            </el-tab-pane>
+            </el-tab-pane> -->
           </el-tabs>
           <el-container>
             <el-main>

@@ -22,7 +22,8 @@
     "vue-stash": "^2.0.1-beta",
     "vue2-animate": "^2.0.0",
     "vue2-medium-editor": "^1.1.6",
-    "vuedraggable": "^2.16.0"
+    "vuedraggable": "^2.16.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

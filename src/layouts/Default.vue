@@ -5,24 +5,11 @@
         <br />Contenido
 			<home/>
       </b-tab>
-      <b-tab title="Vista Previa" active>
+      <b-tab title="Vista Previa">
         <br />vista previa
 			<preview/>
       </b-tab>
     </b-tabs>
-
-    <!-- 		<el-header>
-			<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :router="true">
-			  <el-menu-item index="/">Diseño</el-menu-item>
-			  <el-menu-item index="/Preview">Vista Previa</el-menu-item>
-			</el-menu>
-		</el-header>
-
-	  	<el-container>
-	    	<el-main>
-	    		<slot />
-	    	</el-main>
-	  	</el-container> -->
   </b-container>
 </template>
 

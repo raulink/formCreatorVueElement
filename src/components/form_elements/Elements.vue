@@ -21,27 +21,6 @@
         </b-col>
       </draggable>
     </b-row>
-
-    <!-- <el-row class="row-bg">
-      <draggable
-        :list="fields"
-        :clone="clone"
-        class="dragArea"
-        :options="dropElementOptions"
-        @start="onStart"
-      >
-        <el-col
-          :span="12"
-          :class="{ 'is-disabled': checkStopDragCondition(field) }"
-          v-for="(field, index) in fields"
-          :key="index"
-        >
-          <el-button class="button__sidebar" type="info">
-            {{ field.text }}
-          </el-button>
-        </el-col>
-      </draggable>
-    </el-row> -->
   </div>
   </b-container>
 </template>
@@ -52,7 +31,7 @@ import draggable from "vuedraggable";
 
 export default {
   name: "Elementos",
-  store: ["forms", "activeForm"],
+  store: ["forms", "activeForm"], // Aqui solo se utiliza forms
   components: { draggable },
   data() {
     return {

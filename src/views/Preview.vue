@@ -28,11 +28,12 @@
 </template>
 
 <script>
+/** eslint-disable  */
   import { FormBuilder } from '@/components/form_elements/formbuilder'
 
   export default {
     name: 'Publish',
-    store: ['forms', 'themingVars'],
+    store: ['forms', 'themingVars'],  // Solo se usa forms
     components: FormBuilder.$options.components,
     computed: {
       /* cssProps() { 

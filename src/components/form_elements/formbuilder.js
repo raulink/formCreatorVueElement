@@ -19,7 +19,6 @@ import Elements         	from '@/components/form_elements/Elements'
 import Properties			from '@/components/form_elements/Properties'
 import Theming	 		 	from '@/components/form_elements/Theming'
 
-
 export const FormBuilder = new Vue({
 	components: { Elements, Properties, Theming, draggable, TextInput, LongTextInput, NumberInput, SelectList, RadioButton, Checkbox, TimePicker, DatePicker, DatetimePicker, Rating, Button, TextEditor },
 	data() {
