@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <b-form-datepicker
       v-model="date"
       menu-class="w-100"
@@ -9,11 +8,6 @@
       placeholder="Seleccione Fecha"
     >      
     </b-form-datepicker>
-    <!-- <el-date-picker    
-      v-model="date"
-      type="date"
-      placeholder="Seleccione Fecha">
-    </el-date-picker> -->
   </div>
 </template>
 

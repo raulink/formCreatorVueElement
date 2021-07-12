@@ -100,13 +100,23 @@
 <script>
 export default {
   name: "Properties",
-  store: ["activeForm"], // Get the form data from Home AvtiveForm tiene todo el lienzo para añadir comandos
+  //store: ["activeForm"], // Get the form data from Home AvtiveForm tiene todo el lienzo para añadir comandos
   data() {
     return {
       labelPosition: "top",
       fieldProperties: {},
       rules: {},
     };
+  },
+  computed:{    
+    activeForm:{
+      get(){
+        return this.$store.state.activeForm
+      },
+      set(value){
+        this.$store.state.activeForm = value
+      }      
+    },
   },
   methods: {
     deleteOption(option, index) {

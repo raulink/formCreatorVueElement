@@ -1,27 +1,38 @@
 <template>
   <div class="main__wrapper">
     <b-container>
-<!--       <el-main > -->
-        <!-- <el-main :style="cssProps"> En caso de estilos personalizados -->
-        <div class="wrapper--forms preview__wrapper">
-          <div v-for="(form, index) in forms" 
-               :key="index" 
-               v-bind="form"
-               class="form__group">
-            <label class="form__label" v-model="form.label" v-show="form.hasOwnProperty('label')">{{ form.label }}</label>
+      <!--       <el-main > -->
+      <!-- <el-main :style="cssProps"> En caso de estilos personalizados -->
+      <div class="wrapper--forms preview__wrapper">
+        <div
+          v-for="(form, index) in forms"
+          :key="index"
+          v-bind="form"
+          class="form__group"
+        >
+          <label
+            class="form__label"
+            v-model="form.label"
+            v-show="form.hasOwnProperty('label')"
+            >{{ form.label }}</label
+          >
 
-            <component :is="form.fieldType"
-                        :currentField="form"
-                       class="form__field">
-            </component>
+          <component
+            :is="form.fieldType"
+            :currentField="form"
+            class="form__field"
+          >
+          </component>
 
-            <small class="form__helpblock" 
-            v-model="form.helpBlockText" 
-            v-show="form.isHelpBlockVisible">
-              {{ form.helpBlockText }} 
-            </small>
-          </div>
+          <small
+            class="form__helpblock"
+            v-model="form.helpBlockText"
+            v-show="form.isHelpBlockVisible"
+          >
+            {{ form.helpBlockText }}
+          </small>
         </div>
+      </div>
       <!-- </el-main> -->
     </b-container>
   </div>
@@ -29,14 +40,23 @@
 
 <script>
 /** eslint-disable  */
-  import { FormBuilder } from '@/components/form_elements/formbuilder'
+import { FormBuilder } from "@/components/form_elements/formbuilder";
 
-  export default {
-    name: 'Publish',
-    store: ['forms', 'themingVars'],  // Solo se usa forms
-    components: FormBuilder.$options.components,
-    computed: {
-      /* cssProps() { 
+export default {
+  name: "Publish",
+  //store: ['forms', 'themingVars'],  // Solo se usa forms
+  components: FormBuilder.$options.components,
+  computed: {
+    forms: {
+      get() {
+        return this.$store.state.forms;
+      },
+      set(value) {
+        this.$store.state.forms = value;
+      },
+    },
+
+    /* cssProps() { 
         // Return an object that will generate css properties key 
         // to match with the themingVars
         // 
@@ -60,6 +80,6 @@
 
         return result;
       } */
-    }
-  }
+  },
+};
 </script>

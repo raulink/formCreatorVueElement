@@ -2,7 +2,7 @@
   <div class="main__wrapper">
     <b-container>
       <b-row>
-        <b-col md="5">
+        <b-col md="5" >
           <div class="wrapper--forms">
             <!-- Show empty state if empty -->
             <div v-if="forms.length == 0" class="emptyState">
@@ -14,7 +14,6 @@
               class="dragArea"
               :options="sortElementOptions"
             >
-              <!-- The form elements starts (on the right) -->
               <div
                 v-for="(form, index) in forms"
                 :key="index"
@@ -91,7 +90,7 @@
 
               <b-tab name="properties" title="Propiedades">
                 <properties
-                  v-show="Object.keys($store.activeForm).length > 0"
+                  v-show="Object.keys(activeForm).length > 0"
                 ></properties>
               </b-tab>
 
@@ -108,7 +107,7 @@
             <!-- <el-aside class="wrapper--sidebar" width="450px"> -->
             <br />Actual Form:
             <div class="wrapper--snippet">
-                <pre>{{ $store.activeForm }}</pre>
+                <pre>{{ activeForm }}</pre>
             </div>
             
             <!-- </el-aside> -->
@@ -132,7 +131,7 @@ import { FormBuilder } from "@/components/form_elements/formbuilder";
 
 export default {
   name: "Home",
-  store: ["forms", "activeForm", "activeTabForFields", "themingVars"],
+  //store: ["forms", "activeForm", "activeTabForFields", "themingVars"],
 
   data() {
     return {
@@ -141,6 +140,31 @@ export default {
   },
 
   computed: {
+
+    forms:{
+      get(){
+        return this.$store.state.forms
+      },
+      set(value){
+        this.$store.state.forms = value
+      }      
+    },
+    activeForm:{
+      get(){
+        return this.$store.state.activeForm
+      },
+      set(value){
+        this.$store.state.activeForm = value
+      }      
+    },
+    activeTabForFields:{
+      get(){
+        return this.$store.state.activeTabForFields
+      },
+      set(value){
+        this.$store.state.activeTabForFields = value
+      }      
+    }
     /* cssProps() {
       // Return an object that will generate css properties key
       // to match with the themingVars
@@ -170,29 +194,39 @@ export default {
   },
 
   mounted() {
-    console.log("form ->", this.forms);
+    console.log("forms ->", this.forms);
     console.log("activeform ->", this.activeForm);
+    console.log("activeTabForFields ->", this.activeTabForFields);
+
   },
 
   components: FormBuilder.$options.components,
 
   methods: {
     deleteElement(index) {
-      FormBuilder.deleteElement(index);
+      //FormBuilder.deleteElement(index);
+      this.activeForm=[]
+      this.activeTabForFields=0
+      this.$delete(this.forms,index)
     },
 
     cloneElement(index, form) {
-      FormBuilder.cloneElement(index, form);
+      //FormBuilder.cloneElement(index, form);
+
+      var cloned = _.cloneDeep(form)
+      this.forms.splice(index,0,cloned)
     },
 
     editElementProperties(form) {
-      FormBuilder.editElementProperties(form);
+      //FormBuilder.editElementProperties(form);
+      this.$store.state.activeForm = form      
+      this.activeTabForFields = 1
     },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Se añade "scoped" para limitar CSS solo a este componente -->
 <style lang="scss" scoped>
 .main__wrapper {
   height: 100%;

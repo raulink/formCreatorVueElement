@@ -1,4 +1,8 @@
-export default {
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+export default new Vuex.Store({  
+  state: {
 	forms: [],
 	activeForm: [],
 	activeTabForFields: 0,
@@ -27,4 +31,20 @@ export default {
 		buttonBorderColor: "#000000",
 		buttonColor: "#FFFFFF"
 	}
-}
+  },
+  mutations: {
+	updateForms(state,payload){
+		state.forms = payload
+	},
+	updateActiveForm(state,payload){
+		state.activeForm = payload
+	},
+	updateTab(state,payload){
+		state.activeTabForFields = payload
+	}
+  },
+  actions: {
+  },
+  getters: {
+  }
+})

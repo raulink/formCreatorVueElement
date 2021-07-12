@@ -50,19 +50,18 @@ Vue.component('default-layout', Default);
 // ================
 // Vue-stash alternative vuex
 // ----------------
-import VueStash from 'vue-stash'
+//import VueStash from 'vue-stash'
 import store from './store/store'
-Vue.use(VueStash)
-
-
+//Vue.use(VueStash)
 
 Vue.config.productionTip = false
 
 var vm = new Vue({
   el: '#app',
-  router,
+  store,
+  router,  
   components: { App },
-  data: { store },
+  //data: { store },
   template: '<App/>',
   render: h => h(App)
 }).$mount('#app')

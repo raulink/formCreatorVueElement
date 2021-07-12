@@ -11,7 +11,7 @@
       >
         <b-col 
           :span="20"
-          :class="{ 'is-disabled': checkStopDragCondition(field) }"
+          
           v-for="(field, index) in fields"
           :key="index"
         >
@@ -31,13 +31,33 @@ import draggable from "vuedraggable";
 
 export default {
   name: "Elementos",
-  store: ["forms", "activeForm"], // Aqui solo se utiliza forms
+  //store: ["forms", "activeForm"], // Aqui solo se utiliza forms
+
+
   components: { draggable },
   data() {
     return {
       fields: FormBuilder.$data.fields,
       dropElementOptions: FormBuilder.$data.dropElementOptions,
     };
+  },
+  computed:{
+    forms:{
+      get(){
+        return this.$store.state.forms
+      },
+      set(value){
+        this.$store.state.forms = value
+      }      
+    },
+    activeForm:{
+      get(){
+        return this.$store.state.activeForm
+      },
+      set(value){
+        this.$store.state.activeForm = value
+      }      
+    },
   },
   methods: {
     clone(field) {
@@ -46,13 +66,13 @@ export default {
         isUnique: field.isUnique,
       };
 
-      // Show placeholder
+      // Texto de fondo
       if (field.isPlaceholderVisible) {
         newField["isPlaceholderVisible"] = false;
         newField["placeholder"] = "Introducir Texto";
       }
 
-      // Decide whether display label, required field, helpblock
+      // Decidir que se va mostrar,
       if (field.group == "form") {
         newField["label"] = "Introduzca Etiqueta";
         newField["isHelpBlockVisible"] = false;
@@ -67,7 +87,7 @@ export default {
       if (field.name == "TextEditor") {
         newField["fieldText"] = "Introducir Texto";
       }
-      // Add dummy options for loading the radio/checkbox
+      // Opciones por defecto de las opciones
       if (field.hasOptions) {
         newField["options"] = [
           { optionLabel: "Opcion 1", optionValue: "Opcion 1" },
@@ -78,18 +98,18 @@ export default {
       return newField;
     },
     onStart() {
-      console.log("starting");
+      console.log("Iniciando");
     },
-    checkStopDragCondition(field) {
+    /* checkStopDragCondition(field) {
       var form = this.forms,
         formArray = [];
       for (var key in form) {
         formArray.push(form[key]["fieldType"]);
       }
-      // Check if the fieldname exist in formArray
-      // And when the field.isUnique too
+      // Verifica que el campo exista en el array
+      // verificar que es unico
       return _.includes(formArray, field.name) && field.isUnique; //No permite modificar el texto
-    },
+    }, */
   },
 };
 </script>

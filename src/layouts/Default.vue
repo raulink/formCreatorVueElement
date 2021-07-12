@@ -7,7 +7,7 @@
       </b-tab>
       <b-tab title="Vista Previa">
         <br />vista previa
-			<preview/>
+			<!-- <preview/> -->
       </b-tab>
     </b-tabs>
   </b-container>
