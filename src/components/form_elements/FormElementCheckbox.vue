@@ -1,12 +1,15 @@
 <template>
   <div>
-    <b-checkbox-group v-model="checkList">
-      <b-checkbox v-for="(item, index) in currentField.options"
-              :key="item.optionValue"
-              :label="index">
-        {{ item.optionValue }}
-      </b-checkbox>
-    </b-checkbox-group>
+
+ <b-form-checkbox-group
+      v-model="checkList"
+      :options="currentField.options"
+      class="mb-3"
+      value-field="optionValue"
+      text-field="optionLabel"
+      disabled-field="notEnabled"
+    ></b-form-checkbox-group>
+    
   </div>
 </template>
 
@@ -16,7 +19,8 @@
     props: ['currentField'],
     data() {
     	return {
-    		checkList: [0]
+    		checkList: [],
+        selected:[],
     	}
     }
   }

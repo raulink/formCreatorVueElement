@@ -163,7 +163,7 @@ export const FormBuilder = new Vue({
 	methods: {
 		deleteElement(index){
 	        vm.$store.activeForm = [];
-	        vm.$store.activeTabForFields = "elements"; 
+	        vm.$store.activeTabForFields = 0//"elements"; 
 	        this.$delete(vm.$store.forms, index);
 	    },
 
@@ -174,7 +174,7 @@ export const FormBuilder = new Vue({
 
 	    editElementProperties(form){
 	    	vm.$store.activeForm = form;
-        	vm.$store.activeTabForFields = "properties";  
+        	vm.$store.activeTabForFields = 1//"properties";  
 	    }
 	}	
 });

@@ -1,7 +1,7 @@
 <template>
   <div class="main__wrapper">
-    <el-container>
-      <el-main >
+    <b-container>
+<!--       <el-main > -->
         <!-- <el-main :style="cssProps"> En caso de estilos personalizados -->
         <div class="wrapper--forms preview__wrapper">
           <div v-for="(form, index) in forms" 
@@ -22,8 +22,8 @@
             </small>
           </div>
         </div>
-      </el-main>
-    </el-container>
+      <!-- </el-main> -->
+    </b-container>
   </div>
 </template>
 

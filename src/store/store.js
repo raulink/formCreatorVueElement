@@ -1,7 +1,7 @@
 export default {
 	forms: [],
 	activeForm: [],
-	activeTabForFields: 'elements',
+	activeTabForFields: 0,
 	themingVars: {
 		globalFontFamily: "Arial",
 		globalFontColor: "#777777",

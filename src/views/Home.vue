@@ -71,7 +71,7 @@
                     <!-- Boton Eliminar -->
                     <b-button
                       size="sm"
-                      variant="danger"                      
+                      variant="danger"
                       @click="deleteElement(index)"
                     >
                       <b-icon icon="trash-fill"> </b-icon>
@@ -83,35 +83,41 @@
           </div>
         </b-col>
         <b-col md="7">
-          <el-tabs type="border-card" v-model="activeTabForFields">
-            <el-tab-pane name="elements" label="Elementos">
-              <elements />
-            </el-tab-pane>
+          <b-card>
+            <b-tabs type="border-card" v-model="activeTabForFields">
+              <b-tab title="Elementos">
+                <elements />
+              </b-tab>
 
-            <el-tab-pane name="properties" label="Propiedades">
-              <properties
-                v-show="Object.keys($store.activeForm).length > 0"
-              ></properties>
-            </el-tab-pane>
+              <b-tab name="properties" title="Propiedades">
+                <properties
+                  v-show="Object.keys($store.activeForm).length > 0"
+                ></properties>
+              </b-tab>
 
-            <!-- <el-tab-pane name="designs" label="Estilos">
-              <theming></theming>
-            </el-tab-pane> -->
-          </el-tabs>
-          <el-container>
-            <el-main>
-              <!-- <el-main :style="cssProps"> Añadir la propiedad en caso de estilos personalizados  -->
-              <!-- Se muestra la division donde esta el json resultante -->
-            </el-main>
-            <el-aside class="wrapper--sidebar" width="450px">
-              <br />
-              {{ $store.activeForm }}
-            </el-aside>
-          </el-container>
+              <!-- <b-tab title="Estilos">
+                <theming></theming>
+              </b-tab> -->
+            </b-tabs>
+          </b-card>
+          <b-container>
+            <!-- <el-main> -->
+            <!-- <el-main :style="cssProps"> Añadir la propiedad en caso de estilos personalizados  -->
+            <!-- Se muestra la division donde esta el json resultante -->
+            <!-- </el-main> -->
+            <!-- <el-aside class="wrapper--sidebar" width="450px"> -->
+            <br />Actual Form:
+            <div class="wrapper--snippet">
+                <pre>{{ $store.activeForm }}</pre>
+            </div>
+            
+            <!-- </el-aside> -->
+          </b-container>
         </b-col>
       </b-row>
       <b-row>
         <b-col md="12">
+            forms:
           <div class="wrapper--snippet">
             <pre>{{ forms }}</pre>
           </div>
