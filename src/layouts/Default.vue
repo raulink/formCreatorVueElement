@@ -7,12 +7,11 @@
       </b-tab>
       <b-tab title="Vista Previa">
         <br />vista previa
-			<!-- <preview/> -->
+			<preview/>
       </b-tab>
     </b-tabs>
   </b-container>
 </template>
-
 
 <script>
 import Home from "../views/Home.vue";

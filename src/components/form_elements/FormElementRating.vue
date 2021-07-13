@@ -2,8 +2,7 @@
   <div>
     <div class="rating">
       <input type="radio" name="rating" @click="click(5)" id="5" />
-      <label for="5">☆</label>
-      <input type="radio" name="rating" @click="click(4)" id="4" />
+      <label for="5">☆</label><input type="radio" name="rating" @click="click(4)" id="4" />      
       <label for="4">☆</label><input type="radio" name="rating" @click="click(3)" id="3" />
       <label for="3">☆</label><input type="radio" name="rating" @click="click(2)" id="2" />
       <label for="2">☆</label><input type="radio" name="rating" @click="click(1)" id="1" />
@@ -11,7 +10,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -24,6 +22,7 @@ export default {
   methods: {
     click(val) {
       this.value = val;
+      console.log(this.value)
     },
   },
 };
