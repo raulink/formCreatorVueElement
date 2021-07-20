@@ -6,6 +6,7 @@ export default new Vuex.Store({
 	forms: [],
 	activeForm: [],
 	activeTabForFields: 0,
+	asset_type:"",
 	themingVars: {
 		globalFontFamily: "Arial",
 		globalFontColor: "#777777",
@@ -41,6 +42,9 @@ export default new Vuex.Store({
 	},
 	updateTab(state,payload){
 		state.activeTabForFields = payload
+	},
+	updateAssetType(state,payload){
+		state.asset_type = payload
 	}
   },
   actions: {

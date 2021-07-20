@@ -1,6 +1,6 @@
 <template>
   <div class="main__wrapper">
-    <b-container>
+    <b-container fluid>
       <b-row>
         <b-col md="5" >
           <div class="wrapper--forms">
@@ -105,36 +105,52 @@
             <!-- Se muestra la division donde esta el json resultante -->
             <!-- </el-main> -->
             <!-- <el-aside class="wrapper--sidebar" width="450px"> -->
-            <br />Actual Form:
-            <div class="wrapper--snippet">
-                <pre>{{ activeForm }}</pre>
-            </div>
+            
             
             <!-- </el-aside> -->
           </b-container>
         </b-col>
       </b-row>
-      <b-row>
-        <b-col md="12">
+      <b-row class="mt-5 mb-5" >
+        <br/> Botones de accion
+        <b-button  @click="saveAction">  
+          Guardar
+        </b-button>
+        <b-button variant="danger">
+          Cancelar
+        </b-button>
+      </b-row>
+
+      <b-row>        
+        <b-col md="6">
             forms:
           <div class="wrapper--snippet">
             <pre>{{ forms }}</pre>
           </div>
         </b-col>
+        <b-col md="6">
+        <br />Actual Form:
+            <div class="wrapper--snippet">
+                <pre>{{ activeForm }}</pre>
+            </div>
+        </b-col>
       </b-row>
+
     </b-container>
+
   </div>
 </template>
 
 <script>
 import { FormBuilder } from "@/components/form_elements/formbuilder";
+import axios from 'axios'
 
 export default {
   name: "Home",
-  //store: ["forms", "activeForm", "activeTabForFields", "themingVars"],
 
   data() {
     return {
+      payload:{},
       sortElementOptions: FormBuilder.$data.sortElementOptions,
     };
   },
@@ -197,12 +213,31 @@ export default {
     console.log("forms ->", this.forms);
     console.log("activeform ->", this.activeForm);
     console.log("activeTabForFields ->", this.activeTabForFields);
-
+    console.log ("asset :",this.$store.state.asset_type)
   },
 
   components: FormBuilder.$options.components,
 
   methods: {
+    saveAction(){      
+      this.forms.forEach(async (res) => {
+        var payload = new Object      
+        var opciones = JSON.stringify(res.options)        
+        payload = JSON.parse(JSON.stringify(res))                
+        payload.fk_asset_type = this.$store.state.asset_type
+        payload.created_by = 1
+        payload.updated_by = 1
+        payload.options = opciones
+        console.log(payload)
+        try {
+          await axios.post("/api/v1/asset-field",payload)          
+                    
+        } catch (error) {
+          console.log(error)
+        }        
+      })
+      
+    },
     deleteElement(index) {
       //FormBuilder.deleteElement(index);
       this.activeForm=[]

@@ -33,7 +33,6 @@ export default {
   name: "Elementos",
   //store: ["forms", "activeForm"], // Aqui solo se utiliza forms
 
-
   components: { draggable },
   data() {
     return {

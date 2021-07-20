@@ -21,6 +21,7 @@
             :is="form.fieldType"
             :currentField="form"
             class="form__field"
+            
           >
           </component>
 
