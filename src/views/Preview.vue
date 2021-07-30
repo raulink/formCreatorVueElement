@@ -4,34 +4,10 @@
       <!--       <el-main > -->
       <!-- <el-main :style="cssProps"> En caso de estilos personalizados -->
       <div class="wrapper--forms preview__wrapper">
-        <div
-          v-for="(form, index) in forms"
-          :key="index"
-          v-bind="form"
-          class="form__group"
-        >
-          <label
-            class="form__label"
-            v-model="form.label"
-            v-show="form.hasOwnProperty('label')"
-            >{{ form.label }}</label
-          >
-
-          <component
-            :is="form.fieldType"
-            :currentField="form"
-            class="form__field"
-            
-          >
-          </component>
-
-          <small
-            class="form__helpblock"
-            v-model="form.helpBlockText"
-            v-show="form.isHelpBlockVisible"
-          >
-            {{ form.helpBlockText }}
-          </small>
+        <div v-for="(form, index) in forms" :key="index" v-bind="form"  class="form__group" >
+          <label class="form__label" v-model="form.label" v-show="form.hasOwnProperty('label')" >{{ form.label }}</label>
+          <component :is="form.fieldType" :currentField="form" class="form__field"> </component>
+          <small class="form__helpblock" v-model="form.helpBlockText" v-show="form.isHelpBlockVisible">{{ form.helpBlockText }}</small>
         </div>
       </div>
       <!-- </el-main> -->

@@ -42,7 +42,7 @@ export default {
   },
   mounted () {
         //core.index();
-        axios.defaults.baseURL="http://localhost:8000"        
+        axios.defaults.baseURL="http://localhost:8000"          // TODO Verificar el host 
         this.cargarMarcas()
   },
 
