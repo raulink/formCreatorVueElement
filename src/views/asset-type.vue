@@ -77,7 +77,7 @@ export default {
 			console.log("fetch Fields:", evt);
 			this.api = `/api/v1/asset-type/fields/${evt}`;
 			axios.get(this.api).then((response) => {
-                this.forms =response.data.rows[0].asset_fields 
+                this.forms =response.data.rows[0].asset_fields
 				console.log(this.forms);
 			});
 		},
